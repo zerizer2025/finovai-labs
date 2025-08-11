@@ -1,5 +1,6 @@
-import './globals.css';
+import Image from 'next/image';
 import Link from 'next/link';
+import './globals.css';
 import { ThemeProvider } from 'next-themes';
 import ThemeToggle from '../components/ThemeToggle';
 
@@ -20,9 +21,13 @@ export default function RootLayout({
           {/* Navigation Bar */}
           <nav className="bg-gray-100 dark:bg-gray-800 shadow-md px-6 py-4">
             <div className="container mx-auto flex justify-between items-center">
-              {/* Logo */}
-              <Link href="/" className="text-2xl font-extrabold text-gray-900 dark:text-white">
-                FinovAI Labs
+              
+              {/* Logo + Brand Name */}
+              <Link href="/" className="flex items-center gap-2">
+                <Image src="/logofinovai.png" alt="FinovAI Labs Logo" width={50} height={50}/>
+                <span className="text-2xl font-extrabold text-gray-900 dark:text-white">
+                  FinovAI Labs
+                </span>
               </Link>
 
               {/* Links */}
@@ -61,4 +66,3 @@ export default function RootLayout({
     </html>
   );
 }
-
