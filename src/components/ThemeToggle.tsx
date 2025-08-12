@@ -1,6 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import { Sun, Moon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
@@ -8,15 +9,14 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-
   if (!mounted) return null;
 
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:scale-105 transition"
     >
-      {theme === 'dark' ? '🌞' : '🌙'}
+      {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
     </button>
   );
 }
